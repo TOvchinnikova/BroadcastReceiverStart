@@ -24,6 +24,19 @@ class MyReceiver : BroadcastReceiver() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+            ACTION_CLICKED -> {
+                val countClick = intent.getIntExtra(EXTRA_COUNT, 0)
+                Toast.makeText(
+                    context,
+                    "Clicked. Count: $countClick",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
+    }
+
+    companion object {
+        const val ACTION_CLICKED = "clicked"
+        const val EXTRA_COUNT = "count"
     }
 }
