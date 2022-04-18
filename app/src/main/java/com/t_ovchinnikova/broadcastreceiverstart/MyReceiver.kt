@@ -32,11 +32,21 @@ class MyReceiver : BroadcastReceiver() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+            ACTION_LOADED -> {
+                val percent = intent.getIntExtra(EXTRA_PERCENT, 0)
+                Toast.makeText(
+                    context,
+                    "Loaded. Percent: $percent",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
     companion object {
         const val ACTION_CLICKED = "clicked"
         const val EXTRA_COUNT = "count"
+        const val ACTION_LOADED = "loaded"
+        const val EXTRA_PERCENT = "percent"
     }
 }
